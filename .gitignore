@@ -288,4 +288,4 @@ __pycache__/
 *.xsd.cs
 
 # Umbraco Data
-UmbracoCms/App_Data/Logs/
+UmbracoCms/App_Data/
