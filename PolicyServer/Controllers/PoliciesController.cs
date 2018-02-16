@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace policyserver.Controllers
 {
@@ -10,10 +13,17 @@ namespace policyserver.Controllers
     {
         // GET api/policies
         [HttpGet()]
-        public JsonResult Get()
+        public IActionResult Get()
         {
             var roles = User.FindAll("role");
-            return new JsonResult(from r in roles select new { r.Type, r.Value });
+            if (roles == null)
+                return BadRequest();
+
+            var result = new JsonResult(from r in roles select new { r.Type, r.Value });
+            if (result != null)
+                return Ok(result);
+            else
+                return NotFound();
         }
     }
 }

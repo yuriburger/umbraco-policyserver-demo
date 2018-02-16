@@ -21,14 +21,15 @@ namespace PolicyServer
                 .AddAuthorization()
                 .AddJsonFormatters();
 
+            // Load the PolicyServer policies
             services.AddPolicyServerClient(Configuration.GetSection("Policy"));
 
+            // IdentityServer Access Token Validation
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication(options =>
                 {
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
-
                     options.ApiName = "application.policy";
                 });
         }
@@ -42,6 +43,8 @@ namespace PolicyServer
             }
 
             app.UseAuthentication();
+
+            // This claims augmentation middleware maps the user's authorization data into claims
             app.UsePolicyServerClaimsTransformation();
             app.UseMvc();
         }

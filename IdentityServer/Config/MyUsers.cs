@@ -43,6 +43,20 @@ namespace IdentityServer.Config
                         new Claim(ClaimTypes.Surname, "Roberts"),
                         new Claim(ClaimTypes.Email, "BobRoberts@email.com")
                     }
+                },
+                new TestUser
+                {
+                    SubjectId = "3",
+                    Username = "jessica",
+                    Password = "password",
+
+                    Claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, "Jessica Roberts"),
+                        new Claim(ClaimTypes.GivenName, "Jessica"),
+                        new Claim(ClaimTypes.Surname, "Roberts"),
+                        new Claim(ClaimTypes.Email, "JessicaRoberts@email.com")
+                    }
                 }
             };
         }
