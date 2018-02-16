@@ -1,6 +1,6 @@
 # umbraco-policyserver-demo
-
-
+[logo]: https://github.com/yuriburger/umbraco-policyserver-demo/blob/master/Feature.png "Umbraco Loves PolicyServer!"
+![alt text][logo]
 
 This source code is part of a blogpost about running managing identities in Umbraco BackOffice using IdentityServer and PolicyServer.
 
